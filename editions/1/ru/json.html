@@ -12,9 +12,8 @@
 
 <h2 id="json">JSON Primer</h2>
 
-<p>CouchDB uses <em>JavaScript Object Notation</em> (JSON) for data storage, a lightweight format based on a subset of JavaScipt syntax. One of the best bits about JSON is that it’s easy to read and write by hand, much more so than something like XML. We can parse it naturally with JavaScript because it shares part of the same syntax. This really comes in handy when we’re building dynamic web applications and we want to fetch some data from the server.
-
-<p>Here’s a sample JSON document:
+<p>CouchDB использует <em>JavaScript Object Notation</em> (JSON) для хранения данных. Это облегченный формат, основанный на подмножестве синтаксиса JavaScipt. Одним из лучших моментов в JSON является то, что его легко читать и писать вручную, гораздо больше, чем что-то вроде XML. Мы можем проанализировать его с помощью JavaScript, потому что он разделяет часть того же синтаксиса. Это действительно удобно, когда мы создаем динамические веб-приложения и хотим получить некоторые данные от сервера.
+<p>Вот пример документа JSON:
 
 <pre>
 {
@@ -30,75 +29,73 @@
 }
 </pre>
 
-<p>You can see that the general structure is based around key/value pairs and lists of things.
+<p>Вы можете видеть, что общая структура основана на парах ключ / значение и списках.
 
-<h3 id="types">Data Types</h3>
+<h3 id="types">Типы данных</h3>
 
-<p>JSON has a number of basic data types you can use. We’ll cover them all here.
+<p>JSON имеет несколько основных типов данных, которые вы можете использовать. Мы здесь подробнее расскажем обо всех.
+<h4 id="numbers">Числа</h4>
 
-<h4 id="numbers">Numbers</h4>
+<p>Вы можете использовать положительные целые числа: <code>"Count": 253</code>
 
-<p>You can have positive integers: <code>"Count": 253</code>
+<p>Или отрицательные целые числа: <code>"Score": -19</code>
 
-<p>Or negative integers: <code>"Score": -19</code>
-
-<p>Or floating-point numbers: <code>"Area": 456.31</code>
+<p>Числа с с плавающей запятой: <code>"Area": 456.31</code>
 
 <div class="aside warning">
 
-<p>There is a subtle but important difference between floating-point numbers and decimals. When you use a number like <code>15.7</code>, this will be interpreted as <code>15.699999999999999</code> by most clients, which may be problematic for your application. For this reason, currency values are usually better represented as strings in JSON. A string like <code>"15.7"</code> will be interpreted as <code>"15.7"</code> by every JSON client.
-
+<p>Существует небольшая, но важная разница между числами с плавающей запятой и десятичными числами. Когда вы используете число, например <code>15.7</code>, это будет интерпретироваться большинством клиентов как <code>15.699999999999999</code>, что может быть проблематично для вашего приложения. По этой причине значения валют обычно лучше представлены в виде строк в JSON. Строка типа <code>"15.7"</code> будет интерпретироваться как <code>"15.7"</code> каждым клиентом JSON.
 </div>
 
-<p>Or scientific notation: <code>"Density": 5.6e+24</code>
+<p>Или формат чисел для научных расчётов: <code>"Density": 5.6e+24</code>
 
-<h4 id="strings">Strings</h4>
+<h4 id="strings">Строки</h4>
 
-<p>You can use strings for values:
+<p>Вы можите использовать строки для значений:
 
 <pre>
 "Author": "Rusty"
 </pre>
 
-<p>You have to escape some special characters, like tabs or newlines:
+<p>Вы должны экранировать некоторые специальные символы, такие как символы табуляции или перевода строки:
 
 <pre>
 "poem": "May I compare thee to some\n\tsalty plankton."
 </pre>
 
-<p>The <a href="http://www.json.org">JSON site</a> has details on what needs to be escaped.
+<p>На сайте <a href="http://www.json.org">JSON</a> есть подробная информация по работе со строками и экранирование строк.
 
-<h4 id="booleans">Booleans</h4>
+<h4 id="booleans">Логический тип данных</h4>
 
-<p>You can have boolean true values:
+<p>Вы можите использовать логическое значения, например true:
 
 <pre>
 "Draft": true
 </pre>
 
-<p>Or boolean false values:
+<p>Или false:
 
 <pre>
 "Draft": false
 </pre>
 
-<h4 id="arrays">Arrays</h4>
+<h4 id="arrays">Массивы</h4>
 
-<p>An array is a list of values:
+<p>Массив - это список значений:
 
 <pre>
 "Tags": ["plankton", "baseball", "decisions"]
 </pre>
 
-<p>An array can contain any other data type, including arrays:
+<p>Массив может содержать любой другой тип данных, включая массивы:
 
 <pre>
 "Context": ["dog", [1, true], {"Location": "puddle"}]
 </pre>
 
-<h4 id="objects">Objects</h4>
+<h4 id="objects">Объекты</h4>
 
-<p>An object is a list of key/value pairs:
+<p>Объект представляет собой список пар ключ / значение:
 
 <pre>
 {"Subject": "I like Plankton", "Author": "Rusty"}
@@ -106,7 +103,7 @@
 
 <h4 id="nulls">Nulls</h4>
 
-<p>You can have null values:
+<p>Также вы можите использовать значения типа null:
 
 <pre>
 "Surname": null
